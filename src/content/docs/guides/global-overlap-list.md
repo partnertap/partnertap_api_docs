@@ -104,9 +104,9 @@ Content-Type: application/json
   "content": [
     {
       "account_acv": 0.00,
-      "account_name": "Fox Logistics",
-      "account_owner_email": "rudolf.oconnell@acmesystems.net",
-      "account_owner_name": "Rudolf O'Connell",
+      "account_name": "Example Logistics",
+      "account_owner_email": "jane.doe@example.com",
+      "account_owner_name": "Jane Doe",
       "account_owner_title": "Sales Development Rep",
       "account_type": "Prospect",
       "annual_revenue": "",
@@ -125,7 +125,7 @@ Content-Type: application/json
       "open_pipeline_amount": 463190624.03,
       "partner_account_acv": 0,
       "partner_account_name": "USA Logistics",
-      "partner_account_owner_email": "sample@email.com",
+      "partner_account_owner_email": "sample@example.com",
       "partner_account_owner_name": "John Doe",
       "partner_account_owner_phone": "N/A",
       "partner_account_owner_title": "Senior Sales Rep",
@@ -139,7 +139,7 @@ Content-Type: application/json
       "partner_first_match_date": 1758921277,
       "partner_open_opp": 0,
       "partner_open_pipeline_amount": 0,
-      "partner_org_name": "AbbVie Inc.",
+      "partner_org_name": "Example Pharma Inc.",
       "partner_org_partner_type": "",
       "partner_owner": "",
       "partner_owner_email": "",
@@ -147,7 +147,7 @@ Content-Type: application/json
       "partner_postal_code": "",
       "partner_state": "",
       "partner_street": "",
-      "partner_website": "abbvieinc-demo.net",
+      "partner_website": "example-pharma.example.com",
       "partnerOrgPublicId": "c1727859-692f-499e-8c2a-b1fa50aa1a65",
       "phone_number": "",
       "prm_record_id": "",
@@ -158,7 +158,7 @@ Content-Type: application/json
       "street": "",
       "tax_id": "",
       "territory": "",
-      "website": "FoxLogistics-demo-account.net",
+      "website": "example-logistics.example.com",
       "zip_code": "73013"
     }
   ],
@@ -270,10 +270,10 @@ Filters are passed as key-value pairs in the `filters` object of the `ReportRequ
 Use `-,-` to separate multiple values within a single filter:
 
 ```
-"partner_org_name": "AbbVie Inc.-,-Cisco Systems"
+"partner_org_name": "Example Pharma Inc.-,-Example Networks Inc."
 ```
 
-This matches rows where `partner_org_name` is "AbbVie Inc." **OR** "Cisco Systems".
+This matches rows where `partner_org_name` is "Example Pharma Inc." **OR** "Example Networks Inc.".
 
 ### Supported Operations by Column Type
 
@@ -302,7 +302,7 @@ This matches rows where `partner_org_name` is "AbbVie Inc." **OR** "Cisco System
 ```
 ```json
 {
-  "account_name": "Fox-?-"
+  "account_name": "Example-?-"
 }
 ```
 ```json
@@ -377,13 +377,13 @@ curl -X POST \
   "size": 10,
   "content": [
     {
-      "filterData": "AbbVie Inc.",
+      "filterData": "Example Pharma Inc.",
       "filterRangeMin": null,
       "filterRangeMax": null,
       "filterType": "STRING"
     },
     {
-      "filterData": "Cisco Systems",
+      "filterData": "Example Networks Inc.",
       "filterRangeMin": null,
       "filterRangeMax": null,
       "filterType": "STRING"
@@ -397,7 +397,7 @@ You can then take a `filterData` value from the response and use it directly in 
 ```json
 {
   "filters": {
-    "partner_org_name": "AbbVie Inc."
+    "partner_org_name": "Example Pharma Inc."
   }
 }
 ```
@@ -447,12 +447,12 @@ All filters in the `filters` object are combined with **AND** logic:
   "filters": {
     "state": "Oklahoma",
     "open_opp_count": "1<->10",
-    "account_name": "Fox-?-"
+    "account_name": "Example-?-"
   }
 }
 ```
 
-This returns rows where state is "Oklahoma" **AND** open opp count is between 1-10 **AND** account name contains "Fox".
+This returns rows where state is "Oklahoma" **AND** open opp count is between 1-10 **AND** account name contains "Example".
 
 ### Example: Filtering by Partner
 
@@ -467,7 +467,7 @@ curl -X POST \
   -H "api-key: <YOUR_API_KEY>" \
   -d '{
     "filters": {
-      "partner_org_name": "AbbVie Inc."
+      "partner_org_name": "Example Pharma Inc."
     }
   }'
 ```
@@ -481,7 +481,7 @@ curl -X POST \
   -H "api-key: <YOUR_API_KEY>" \
   -d '{
     "filters": {
-      "partner_org_name": "AbbVie Inc.-,-Cisco Systems"
+      "partner_org_name": "Example Pharma Inc.-,-Example Networks Inc."
     }
   }'
 ```
@@ -495,7 +495,7 @@ curl -X POST \
   -H "api-key: <YOUR_API_KEY>" \
   -d '{
     "filters": {
-      "partner_org_name": "abb-?-"
+      "partner_org_name": "exa-?-"
     }
   }'
 ```
@@ -509,7 +509,7 @@ curl -X POST \
   -H "api-key: <YOUR_API_KEY>" \
   -d '{
     "filters": {
-      "partner_org_name": "AbbVie Inc.-!-"
+      "partner_org_name": "Example Pharma Inc.-!-"
     }
   }'
 ```
@@ -523,7 +523,7 @@ curl -X POST \
   -H "api-key: <YOUR_API_KEY>" \
   -d '{
     "filters": {
-      "partner_org_name": "AbbVie Inc.",
+      "partner_org_name": "Example Pharma Inc.",
       "state": "Oklahoma",
       "open_pipeline_amount": "100000<->500000"
     }

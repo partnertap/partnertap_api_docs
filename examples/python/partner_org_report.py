@@ -7,17 +7,17 @@ Usage:
     export PARTNERTAP_API_KEY=...
 
     # Export matched accounts to CSV (filtered to country match)
-    python partner_org_report.py export "AbbVie Inc." [-o output.csv]
+    python partner_org_report.py export "Example Pharma Inc." [-o output.csv]
 
     # Use a custom base URL (defaults to https://reports.partnertap.com)
-    python partner_org_report.py --base-url https://test-reports.partnertap.com export "AbbVie Inc."
+    python partner_org_report.py --base-url https://test-reports.partnertap.com export "Example Pharma Inc."
 
     # List available columns
-    python partner_org_report.py columns "AbbVie Inc."
-    python partner_org_report.py columns "AbbVie Inc." --type standard
-    python partner_org_report.py columns "AbbVie Inc." --type custom
-    python partner_org_report.py columns "AbbVie Inc." --type partner
-    python partner_org_report.py columns "AbbVie Inc." --type all-separate
+    python partner_org_report.py columns "Example Pharma Inc."
+    python partner_org_report.py columns "Example Pharma Inc." --type standard
+    python partner_org_report.py columns "Example Pharma Inc." --type custom
+    python partner_org_report.py columns "Example Pharma Inc." --type partner
+    python partner_org_report.py columns "Example Pharma Inc." --type all-separate
 """
 
 import argparse
