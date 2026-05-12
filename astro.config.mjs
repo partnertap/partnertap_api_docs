@@ -29,7 +29,10 @@ export default defineConfig({
 				{
 					label: 'Code Examples',
 					items: [{ autogenerate: { directory: 'examples' } }],
-				},
+				},{
+					label: 'OpenAPI',
+					items: [{ autogenerate: { directory: 'open_api' } }],
+				}
 			],
 		}),
 	],
