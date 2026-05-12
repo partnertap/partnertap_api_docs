@@ -1,0 +1,21 @@
+---
+title: API Guides
+description: Guides for integrating with the PartnerTap API for specific use cases.
+---
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+The PartnerTap API guides walk you through the most common integration scenarios for working with partner ecosystem data programmatically — from authenticating against the API and pulling partner organization reports, to retrieving reference data like the global vertical list. Each guide focuses on a specific endpoint or workflow with the request structure, expected response, and notes on how the data is typically used downstream, so you can go from zero to a working integration without piecing things together from raw reference docs.
+
+## Available Guides
+<CardGrid>
+  <LinkCard
+    title="Partner Org Report"
+    href="/guides/partner-org-report/"
+    description="Pull and process partner organization reports."
+  />
+  <LinkCard
+    title="Global Overlap Report"
+    href="/guides/global-overlap-list/"
+    description="Retrieve the global overlap report."
+  />
+</CardGrid>
