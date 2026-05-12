@@ -2,7 +2,7 @@
 
 Official documentation and example code for integrating with the PartnerTap API.
 
-**Docs site:** [https://partnertap.github.io/partnertap_api_docs/](https://partnertap.github.io/partnertap_api_docs/)
+**ParnterTap Developer Documentation site:** [https://developer.partnertap.com](https://developer.partnertap.com)
 
 ## Repository Structure
 
