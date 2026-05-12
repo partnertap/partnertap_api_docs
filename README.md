@@ -9,7 +9,7 @@ Official documentation and example code for integrating with the PartnerTap API.
 - **`/src/content/docs/guides`** — API documentation and guides (rendered by [Starlight](https://starlight.astro.build/))
 - **`/src/content/docs/examples`** — Code example documentation
 - **`/examples`** — Sample source code organized by programming language
-- **`/markdown`** — Original markdown source files (archived)
+- **`/src/content/docs`** — Original markdown documentation source files (archived)
 
 ## Local Development
 

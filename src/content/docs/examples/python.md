@@ -3,7 +3,7 @@ title: Python Examples
 description: Python utilities for the PartnerTap Analytics API — export matched accounts to CSV and discover available report columns.
 ---
 
-File: `partner_org_report.py`
+File: [`partner_org_report.py`](https://github.com/partnertap/partnertap_api_docs/tree/main/examples/python/partner_org_report.py)
 
 Utilities for the PartnerTap Analytics API — export matched accounts to CSV and discover available report columns.
 
