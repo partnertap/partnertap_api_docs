@@ -249,7 +249,8 @@ def _resolve_partner(api_key: str, partner_name: str) -> str:
 
 def cmd_export(args: argparse.Namespace) -> int:
     api_key = _require_api_key()
-    output_path = args.output or f"matched_{args.partner_name.replace(' ', '_').replace('/', '_')}.csv"
+    safe_name = args.partner_name.replace(' ', '_').replace('/', '_').rstrip('.')
+    output_path = args.output or f"matched_{safe_name}.csv"
 
     partner_id = _resolve_partner(api_key, args.partner_name)
 
