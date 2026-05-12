@@ -18,11 +18,37 @@ pip3 install -r requirements.txt
 export PARTNERTAP_API_KEY="<your api key>"
 ```
 
+### 3. (Optional) Custom base URL
+
+By default the script targets the production API (`https://reports.partnertap.com`). To point at a different environment, pass `--base-url` before the subcommand:
+
+```
+python partner_org_report.py --base-url https://test-reports.partnertap.com export "AbbVie Inc."
+```
+
 ---
 
 ## Export Matched Accounts
 
 Exports the list of accounts you share with a given partner org to CSV, filtered to rows where account country matches partner country (normalized via `country_converter`).
+
+### Customize exported columns
+
+Before running an export, open `partner_org_report.py` and edit the `EXPORT_COLUMNS` list to include the columns you want in your CSV. The default is:
+
+```python
+EXPORT_COLUMNS = ["accountName", "crmAccountId", "partnerAccountName", "partnerAccountId"]
+```
+
+Use the `columns` command (described below) to discover available column keys for your partner, then update `EXPORT_COLUMNS` with the keys you need. For example:
+
+```python
+EXPORT_COLUMNS = ["accountName", "crmAccountId", "country", "partnerAccountName", "partnerAccountId", "partnerCountry"]
+```
+
+Only columns listed in `EXPORT_COLUMNS` will appear in the exported CSV.
+
+### Run the export
 
 ```
 python partner_org_report.py export "AbbVie Inc."

@@ -14,6 +14,8 @@ Full documentation lives in [`/markdown`](./markdown). A hosted docs site will b
 ## Examples
  
 Working examples are available in [`/examples`](./examples), organized by language. Pick your stack and go.
+
+- **[Python](./examples/python/README.md)** — Export matched accounts to CSV, discover available report columns
  
 ## License
  

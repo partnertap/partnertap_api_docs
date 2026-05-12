@@ -9,6 +9,9 @@ Usage:
     # Export matched accounts to CSV (filtered to country match)
     python partner_org_report.py export "AbbVie Inc." [-o output.csv]
 
+    # Use a custom base URL (defaults to https://reports.partnertap.com)
+    python partner_org_report.py --base-url https://test-reports.partnertap.com export "AbbVie Inc."
+
     # List available columns
     python partner_org_report.py columns "AbbVie Inc."
     python partner_org_report.py columns "AbbVie Inc." --type standard
@@ -27,10 +30,9 @@ from typing import Any, Optional
 import requests
 import country_converter as coco
 
-# BASE_URL = "https://reports.partnertap.com"
-BASE_URL = "https://test-reports.partnertap.com"
-RECORDS_URL = f"{BASE_URL}/v1/channelecosystem/records"
-COLUMNS_URL = f"{BASE_URL}/v1/channelecosystem/columns"
+DEFAULT_BASE_URL = "https://reports.partnertap.com"
+RECORDS_URL = f"{DEFAULT_BASE_URL}/v1/channelecosystem/records"
+COLUMNS_URL = f"{DEFAULT_BASE_URL}/v1/channelecosystem/columns"
 PAGE_SIZE = 2000  # max allowed
 # customize the columns you would like in your CSV
 EXPORT_COLUMNS = ["accountName", "crmAccountId", "partnerAccountName", "partnerAccountId"]
@@ -261,8 +263,22 @@ def cmd_columns(args: argparse.Namespace) -> int:
     return 0
 
 
+def _apply_base_url(base_url: Optional[str]) -> None:
+    """Override the module-level API URLs if a custom base URL was provided."""
+    if base_url:
+        global RECORDS_URL, COLUMNS_URL
+        base = base_url.rstrip("/")
+        RECORDS_URL = f"{base}/v1/channelecosystem/records"
+        COLUMNS_URL = f"{base}/v1/channelecosystem/columns"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="PartnerTap API utilities.")
+    parser.add_argument(
+        "--base-url",
+        default=None,
+        help=f"Base URL for the PartnerTap API (default: {DEFAULT_BASE_URL})",
+    )
     sub = parser.add_subparsers(dest="command")
 
     # export subcommand
@@ -282,6 +298,7 @@ def main() -> int:
     )
 
     args = parser.parse_args()
+    _apply_base_url(args.base_url)
 
     if args.command == "export":
         return cmd_export(args)
