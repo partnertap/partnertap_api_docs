@@ -9,6 +9,11 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'PartnerTap API Docs',
+			logo: {
+				light: './src/assets/PartnerTap_Logo_Light.png',
+				dark: './src/assets/PartnerTap_Logo_Dark.png',
+				replacesTitle: false
+			},
 			social: [
 				{
 					icon: 'github',
