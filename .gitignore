@@ -148,5 +148,8 @@ vite.config.ts.timestamp-*
 # Output files
 *.csv
 
+# Astro
+.astro/
+
 # Mac
 .DS_Store
