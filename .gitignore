@@ -147,3 +147,6 @@ vite.config.ts.timestamp-*
 
 # Output files
 *.csv
+
+# Mac
+.DS_Store
