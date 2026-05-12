@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://partnertap.github.io',
+	site: 'https://dev.partnertap.com',
 	base: '/partnertap_api_docs',
 	integrations: [
 		starlight({
