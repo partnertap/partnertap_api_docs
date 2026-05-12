@@ -23,7 +23,7 @@ export PARTNERTAP_API_KEY="<your api key>"
 By default the script targets the production API (`https://reports.partnertap.com`). To point at a different environment, pass `--base-url` before the subcommand:
 
 ```
-python partner_org_report.py --base-url https://test-reports.partnertap.com export "AbbVie Inc."
+python partner_org_report.py --base-url https://test-reports.partnertap.com export "Example Pharma Inc."
 ```
 
 ---
@@ -58,12 +58,12 @@ Both lists are combined in order to produce the CSV header and rows.
 ### Run the export
 
 ```
-python partner_org_report.py export "AbbVie Inc."
+python partner_org_report.py export "Example Pharma Inc."
 ```
 
 Optional output path:
 ```
-python partner_org_report.py export "AbbVie Inc." -o abbvie.csv
+python partner_org_report.py export "Example Pharma Inc." -o example-pharma.csv
 ```
 
 ---
@@ -78,25 +78,25 @@ Retrieve and display the columns available on a Partner Org Matched Accounts rep
 
 ### Show all columns
 ```
-python partner_org_report.py columns "AbbVie Inc."
+python partner_org_report.py columns "Example Pharma Inc."
 ```
 
 ### Show only standard columns
 ```
-python partner_org_report.py columns "AbbVie Inc." --type standard
+python partner_org_report.py columns "Example Pharma Inc." --type standard
 ```
 
 ### Show only your custom CRM columns
 ```
-python partner_org_report.py columns "AbbVie Inc." --type custom
+python partner_org_report.py columns "Example Pharma Inc." --type custom
 ```
 
 ### Show only partner shared columns
 ```
-python partner_org_report.py columns "AbbVie Inc." --type partner
+python partner_org_report.py columns "Example Pharma Inc." --type partner
 ```
 
 ### Show each category in its own section
 ```
-python partner_org_report.py columns "AbbVie Inc." --type all-separate
+python partner_org_report.py columns "Example Pharma Inc." --type all-separate
 ```

@@ -109,7 +109,7 @@ Content-Type: application/json
   "content": [
     {
       "companyPartnerPublicId": "c1727859-692f-499e-8c2a-b1fa50aa1a65",
-      "partnerOrgName": "AbbVie Inc."
+      "partnerOrgName": "Example Pharma Inc."
     }
   ]
 }
@@ -549,7 +549,7 @@ This matches rows where `accountType` is "Customer" **OR** "Prospect".
 
 ```json
 {
-  "name": "Fox-?-"
+  "name": "Example-?-"
 }
 ```
 
@@ -598,12 +598,12 @@ All filters in the `filters` object are combined with **AND** logic:
   "filters": {
     "state": "Oklahoma",
     "accountType": "Customer",
-    "name": "Fox-?-"
+    "name": "Example-?-"
   }
 }
 ```
 
-This returns rows where state is "Oklahoma" **AND** account type is "Customer" **AND** account name contains "Fox".
+This returns rows where state is "Oklahoma" **AND** account type is "Customer" **AND** account name contains "Example".
 
 ### Example: Filtered Partner Org Report
 
