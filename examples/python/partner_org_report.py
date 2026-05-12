@@ -35,7 +35,8 @@ RECORDS_URL = f"{DEFAULT_BASE_URL}/v1/channelecosystem/records"
 COLUMNS_URL = f"{DEFAULT_BASE_URL}/v1/channelecosystem/columns"
 PAGE_SIZE = 2000  # max allowed
 # customize the columns you would like in your CSV
-EXPORT_COLUMNS = ["accountName", "crmAccountId", "partnerAccountName", "partnerAccountId"]
+EXPORT_STANDARD_COLUMNS = ["accountName", "crmAccountId"]
+EXPORT_PARTNER_COLUMNS = ["partneraccountname", "partnercrmaccountid"]
 
 logging.basicConfig(
     level=logging.INFO,
@@ -184,6 +185,18 @@ def get_field(record: dict, key: str) -> Any:
     return pf.get(key)
 
 
+def build_row(record: dict) -> dict:
+    """Build a CSV row by reading standard columns from the record and
+    partner columns from the nested ``partnerFields`` object."""
+    row: dict[str, Any] = {}
+    for col in EXPORT_STANDARD_COLUMNS:
+        row[col] = record.get(col)
+    partner_fields = record.get("partnerFields") or {}
+    for col in EXPORT_PARTNER_COLUMNS:
+        row[col] = partner_fields.get(col)
+    return row
+
+
 def export_matched_accounts(api_key: str, partner_id: str, output_path: str) -> tuple[int, int]:
     body = {
         "search": "",
@@ -194,11 +207,12 @@ def export_matched_accounts(api_key: str, partner_id: str, output_path: str) -> 
         "companyPartnerPublicId": partner_id,
     }
 
+    all_columns = EXPORT_STANDARD_COLUMNS + EXPORT_PARTNER_COLUMNS
     total = 0
     written = 0
 
     with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=EXPORT_COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=all_columns)
         writer.writeheader()
 
         for rec in iter_pages(api_key, body):
@@ -209,7 +223,7 @@ def export_matched_accounts(api_key: str, partner_id: str, output_path: str) -> 
             if not country or not partner_country or country != partner_country:
                 continue
 
-            writer.writerow({col: get_field(rec, col) for col in EXPORT_COLUMNS})
+            writer.writerow(build_row(rec))
             written += 1
 
             if total % 5000 == 0:

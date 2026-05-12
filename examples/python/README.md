@@ -34,19 +34,26 @@ Exports the list of accounts you share with a given partner org to CSV, filtered
 
 ### Customize exported columns
 
-Before running an export, open `partner_org_report.py` and edit the `EXPORT_COLUMNS` list to include the columns you want in your CSV. The default is:
+Before running an export, open `partner_org_report.py` and edit the two column lists to include the columns you want in your CSV. The columns are split into two variables because the API returns them in different places in the response:
+
+- **`EXPORT_STANDARD_COLUMNS`** — Your own account fields, read from the top level of each record.
+- **`EXPORT_PARTNER_COLUMNS`** — Partner-shared fields, read from the nested `partnerFields` object in each record.
+
+The defaults are:
 
 ```python
-EXPORT_COLUMNS = ["accountName", "crmAccountId", "partnerAccountName", "partnerAccountId"]
+EXPORT_STANDARD_COLUMNS = ["accountName", "crmAccountId"]
+EXPORT_PARTNER_COLUMNS = ["partnerAccountName", "partnerAccountId"]
 ```
 
-Use the `columns` command (described below) to discover available column keys for your partner, then update `EXPORT_COLUMNS` with the keys you need. For example:
+Use the `columns` command (described below) to discover available column keys for your partner. Columns where the "Partner?" indicator is **Yes** belong in `EXPORT_PARTNER_COLUMNS`; all others belong in `EXPORT_STANDARD_COLUMNS`. For example:
 
 ```python
-EXPORT_COLUMNS = ["accountName", "crmAccountId", "country", "partnerAccountName", "partnerAccountId", "partnerCountry"]
+EXPORT_STANDARD_COLUMNS = ["accountName", "crmAccountId", "country"]
+EXPORT_PARTNER_COLUMNS = ["partnerAccountName", "partnerAccountId", "partnerCountry"]
 ```
 
-Only columns listed in `EXPORT_COLUMNS` will appear in the exported CSV.
+Both lists are combined in order to produce the CSV header and rows.
 
 ### Run the export
 
