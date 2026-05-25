@@ -482,7 +482,5 @@ curl -X POST \
 | --- | --- | --- |
 | `/v1/report-analytics/report/ATTRIBUTION_EVENTS/columns`     | POST    | Get available columns for the report                       |
 | `/v1/report-analytics/report/ATTRIBUTION_EVENTS/filterdata`  | POST    | Get filter values for a column                             |
-| `/v1/report-analytics/report/ATTRIBUTION_EVENTS/download`    | POST    | Download report as CSV                                     |
-| `/v1/report-analytics/report/ATTRIBUTION_EVENTS/dashboard`   | POST    | Get dashboard metrics for the report                       |
 | `/v1/attribution/event-types`                                 | GET     | List the valid `eventTypeCodes` to use in `context`        |
 | `/v1/channelecosystem/records`                                | POST    | List your connected partners; use the `companyPartnerPublicId` values in `context.partnerPublicIds`. See [All Partner Organizations](./partner-org-report#2-get-list-of-partner-organizations). |

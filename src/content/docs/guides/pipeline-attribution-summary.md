@@ -481,6 +481,5 @@ curl -X POST \
 | --- | --- | --- |
 | `/v1/report-analytics/report/PIPELINE_ATTRIBUTION_SUMMARY/columns`     | POST    | Get available columns for the report                       |
 | `/v1/report-analytics/report/PIPELINE_ATTRIBUTION_SUMMARY/filterdata`  | POST    | Get filter values for a column                             |
-| `/v1/report-analytics/report/PIPELINE_ATTRIBUTION_SUMMARY/download`    | POST    | Download report as CSV                                     |
 | `/v1/attribution/event-types`                                           | GET     | List the valid `eventTypeCodes` to use in `context`        |
 | `/v1/channelecosystem/records`                                          | POST    | List your connected partners; use the `companyPartnerPublicId` values in `context.partnerPublicIds`. See [All Partner Organizations](./partner-org-report#2-get-list-of-partner-organizations). |
