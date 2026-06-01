@@ -208,7 +208,6 @@ Note: Columns prefixed with "partner\_" populate depending on your partner's sha
 | crm_account_id  | CRM Account ID  | string  | Unique identifier of the account in the source CRM                                   |
 | top_parent_crm_account_id  | Top Parent Account ID  | string  | CRM ID of the top-level parent account in the account hierarchy             |
 | top_parent_crm_account_name  | Top Parent Account Name  | string  | Name of the top-level parent account in the account hierarchy            |
-| first_match  | First Match  | string  | Indicator of whether this event is associated with the first match between the account and partner  |
 | event_source_link  | Attribution Event Source ID  | string  | Identifier or link back to the source system record for the event           |
 | custom_event_campaign_id  | Campaign ID  | string  | Campaign ID associated with the event (custom event field)                       |
 | custom_event_lead_id  | Lead ID  | string  | Lead ID associated with the event (custom event field)                               |

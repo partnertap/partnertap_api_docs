@@ -162,7 +162,7 @@ The Pipeline Attribution Detail report is scoped via the `context` object on the
       "event_name": "Q3 Pipeline Push - Logistics",
       "event_description": "Action list 'Q3 Pipeline Push - Logistics' was downloaded by Jane Doe.",
       "company_partner_public_id": "c1727859-692f-499e-8c2a-b1fa50aa1a65",
-      "crm_account_id": "001ABC123",
+      "top_parent_crm_account_name": "Example Logistics Group",
       "opp_crm_opportunity_id": "006XYZ789"
     }
   ],
@@ -215,10 +215,9 @@ Note: Columns prefixed with "partner\_" populate depending on your partner's sha
 | event_user_email  | Attribution Event User Email  | email  | Email of the user who triggered the event                                     |
 | event_user_title  | Attribution Event User Title  | title  | Job title of the user who triggered the event                                 |
 | company_partner_public_id  | Partner Org ID  | string  | UUID of the partner organization                                                  |
-| crm_account_id  | CRM Account ID  | string  | Unique identifier of the account in the source CRM                                   |
 | top_parent_crm_account_id  | Top Parent Account ID  | string  | CRM ID of the top-level parent account in the account hierarchy             |
 | top_parent_crm_account_name  | Top Parent Account Name  | string  | Name of the top-level parent account in the account hierarchy            |
-| opp_crm_opportunity_id  | NEW CRM Opp ID  | string  | Unique identifier of the new opportunity in the source CRM                       |
+| opp_crm_opportunity_id  | NEW Opp ID  | string  | Unique identifier of the new opportunity in the source CRM                       |
 | event_source_link  | Attribution Event Source ID  | string  | Identifier or link back to the source system record for the event           |
 | custom_event_campaign_id  | Campaign ID  | string  | Campaign ID associated with the event (custom event field)                       |
 | custom_event_lead_id  | Lead ID  | string  | Lead ID associated with the event (custom event field)                               |
@@ -268,6 +267,21 @@ Note: Columns prefixed with "partner\_" populate depending on your partner's sha
 | partner_crm_record_id  | Partner Org CRM Record ID  | string  | Partner organization identifier in the CRM                          |
 | partner_prm_record_id  | Partner Org PRM Record ID  | string  | Partner organization identifier in the PRM                          |
 | partner_average_referral_deal_size  | Partner Org Avg Referral Deal Size  | currency  | Average referral deal size for the partner organization  |
+| opp_crm_account_id  | NEW Opp Linked Account ID  | string  | CRM account ID the new opportunity is linked to                                |
+| opp_stage_name  | NEW Opp Stage  | string  | Stage of the new opportunity                                                          |
+| opp_close_date  | NEW Opp Close Date  | date  | Close date of the new opportunity (epoch seconds)                                 |
+| opp_is_won  | NEW Opp Is Won  | boolean  | Whether the new opportunity is marked as won                                        |
+| opp_opportunity_type  | NEW Opp Type  | string  | Type of the new opportunity                                                      |
+| opp_is_closed  | NEW Opp Is Closed  | boolean  | Whether the new opportunity is closed                                            |
+| opp_opportunity_owner_name  | NEW Opp Owner Name  | name  | Full name of the new opportunity's owner                                   |
+| opp_opportunity_owner_email  | NEW Opp Owner Email  | email  | Email of the new opportunity's owner                                     |
+| opp_opportunity_owner_title  | NEW Opp Owner Title  | title  | Job title of the new opportunity's owner                                 |
+| opp_opportunity_owner_phone  | NEW Opp Owner Phone  | phone  | Phone of the new opportunity's owner                                     |
+| opp_last_modified_date  | NEW Opp Last Modified Date  | date  | Last modified date of the new opportunity (epoch seconds)              |
+| opp_account_name  | NEW Opp Account Name  | string  | Account name on the new opportunity                                            |
+| opp_probability  | NEW Opp Probability  | number  | Win probability percent for the new opportunity                                   |
+| opp_expected_revenue  | NEW Opp Expected Revenue  | currency  | Expected revenue for the new opportunity                              |
+| opp_pt_status  | NEW Opp PT Status  | string  | PartnerTap status of the new opportunity                                          |
 
 ---
 

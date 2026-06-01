@@ -207,12 +207,12 @@ Note: Each row is aggregated by **top parent account + new opportunity**. Counte
 | workflow_intros_completed_count  | Workflow Intros Completed  | number  | Number of workflow intros completed that contributed to this new opportunity  |
 | total_attribution_events  | Total Attribution Events  | number  | Total count of all attribution events rolled up into this new opportunity        |
 | total_partners  | Total Partners  | number  | Number of distinct partner organizations credited with attribution on this new opportunity  |
+| top_parent_crm_account_id  | Top Parent Account ID  | string  | CRM ID of the top-level parent account in the account hierarchy             |
+| opp_crm_opportunity_id  | NEW Opp ID  | string  | Unique identifier of the new opportunity in the source CRM                       |
+| opp_crm_account_id  | NEW Opp Linked Account ID  | string  | CRM account ID the new opportunity is linked to                            |
 | opp_stage_name  | NEW Opp Stage  | string  | Stage of the new opportunity                                                              |
 | opp_close_date  | NEW Opp Close Date  | date  | Close date of the new opportunity (epoch seconds)                                     |
 | opp_is_won  | NEW Opp Is Won  | boolean  | Whether the new opportunity is marked as won                                            |
-| top_parent_crm_account_id  | Top Parent Account ID  | string  | CRM ID of the top-level parent account in the account hierarchy             |
-| opp_crm_account_id  | CRM Account ID  | string  | Unique identifier of the new opportunity's account in the source CRM            |
-| opp_crm_opportunity_id  | NEW CRM Opp ID  | string  | Unique identifier of the new opportunity in the source CRM                       |
 | opp_opportunity_type  | NEW Opp Type  | string  | Type of the new opportunity                                                          |
 | opp_is_closed  | NEW Opp Is Closed  | boolean  | Whether the new opportunity is closed                                                |
 | opp_opportunity_owner_name  | NEW Opp Owner Name  | name  | Full name of the new opportunity's owner                                       |
@@ -224,33 +224,6 @@ Note: Each row is aggregated by **top parent account + new opportunity**. Counte
 | opp_probability  | NEW Opp Probability  | number  | Win probability percent for the new opportunity                                       |
 | opp_expected_revenue  | NEW Opp Expected Revenue  | currency  | Expected revenue for the new opportunity                                  |
 | opp_pt_status  | NEW Opp PT Status  | string  | PartnerTap status of the new opportunity                                              |
-| account_type  | Account Type  | string  | Account classification (e.g., Customer, Prospect)                                        |
-| street  | Street  | string  | Account street address                                                                         |
-| city  | City  | string  | Account city                                                                                     |
-| state  | State  | string  | Account state or region                                                                         |
-| zip_code  | Zip Code  | string  | Account postal code                                                                          |
-| country  | Country  | string  | Account country                                                                                |
-| website  | Website  | string  | Account website URL                                                                            |
-| industry  | Industry  | string  | Industry classification of the account                                                       |
-| territory  | Territory  | string  | Sales territory the account is assigned to                                                 |
-| number_of_employees  | Number of Employees  | number  | Reported employee count for the account                                       |
-| open_opp_count  | Open Opps  | number  | Count of open opportunities on the account                                              |
-| closed_opp_count  | Closed Opps  | number  | Count of closed opportunities on the account                                          |
-| is_customer  | Is Customer  | boolean  | Whether the account is flagged as a customer                                              |
-| annual_revenue  | Annual Revenue  | currency  | Reported annual revenue of the account                                              |
-| sic_code  | SIC#  | string  | SIC industry classification code                                                            |
-| naics_code  | NAICS#  | string  | NAICS industry classification code                                                         |
-| nces_id  | NCES ID  | string  | NCES identifier (education sector)                                                          |
-| duns_number  | DUNS Number  | string  | Dun & Bradstreet DUNS identifier                                                         |
-| phone_number  | Phone Number  | phone  | Account phone number                                                                        |
-| account_acv  | Account ACV  | currency  | Annual contract value attributed to the account                                       |
-| open_pipeline_amount  | Open Pipeline Amount  | currency  | Total value of open pipeline on the account                                |
-| closed_won_opp_count  | Closed Won Opps  | number  | Count of closed-won opportunities on the account                                |
-| owner_name  | Owner Name  | name  | Full name of the account owner                                                              |
-| owner_email  | Owner Email  | email  | Email of the account owner                                                                |
-| owner_title  | Owner Title  | title  | Job title of the account owner                                                            |
-| owner_phone  | Owner Phone  | phone  | Phone of the account owner                                                                |
-| owner_division  | Owner Division  | string  | Division the account owner belongs to                                              |
 
 ---
 
